@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+    <style type="text/css">
+
+      .reveal .columns {
+        display: flex;
+      }
+
+      .reveal .columns.individual-heights {
+        align-items: center;
+      }
+
+      .reveal .columns > pre {
+        display: flex;
+      }
+
+      .reveal .columns > pre > code {
+        flex: 1;
+      }
+
+      .reveal .columns > * {
+        margin: 5px;
+      }
+
+      .reveal .slides section .fragment.highlight,
+      .reveal .slides section .fragment.highlight-current,
+      .reveal .slides section .highlight {
+        visibility: visible;
+        opacity: 1;
+        background: hsla(60, 100%, 40%, 0.2);
+        margin: 0 -5px;
+        padding: 0 5px;
+      }
+      .reveal .slides section .fragment.highlight:not(.visible),
+      .reveal .slides section .fragment.highlight-current:not(.current-fragment) {
+        background: hsla(60, 100%, 40%, 0);
+      }
+
+      .bad {
+        background: hsl(0, 100%, 16%);
+      }
+
+      .good {
+        background: hsl(120, 100%, 28%);
+      }
+
+      .bad .hljs,
+      .good .hljs {
+        background: transparent;
+      }
+
+      .colorstrong strong {
+        color: hsl(140, 40%, 59%);
+      }
+
+      .comptable {
+        padding: 0;
+      }
+
+      .comptable tr,
+      .comptable td,
+      .comptable pre {
+        margin: 0;
+        padding: 0;
+        width: auto;
+        box-shadow: none;
+      }
+
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+        <section data-background-image="puppies.jpg">
+          <pre><code data-trim data-noescape style="background: rgba(63, 63, 63, .8)">
+from prezutils import setup
+
+
+setup(
+    name="Tonight we won't be talking about caching",
+    author="Yann Kaiser",
+    author_extra=[
+        Twitter("@YannKsr"),
+        PyPI("clize", purpose="Turn functions into CLIs"),
+    ],
+)
+          </code></pre>
+        </section>
+
+        <section>
+
+          <section data-background="mistakes.jpg">
+          </section>
+
+          <section data-background=messenger.jpg>
+          </section>
+
+          <section>
+            <p>When?</p>
+            <p class=fragment>All the time!</p>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <p>Use more than one letter</p>
+
+            <pre><code>plot(speed, time)</code></pre>
+          </section>
+
+          <section data-background=projectnight.jpg>
+          </section>
+
+          <section>
+            <p>Use plural to denote collections</p>
+            <pre><code data-trim>product = products[0]</code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <p>Put yourself in your users' shoes</p>
+
+            <table class=comptable>
+              <tr>
+                <td class=bad>
+                  <pre><code data-trim>
+send_filtered_request_and_parse_response(query)
+search_products_by_query(query)
+</code></pre>
+                <td class=good>
+                  <pre><code data-trim>
+search_products(query)
+</code></pre>
+
+            <div class=columns>
+              <tr>
+                <td class=bad>
+                  <pre><code data-trim>
+get_element('product')
+</code></pre>
+                </td>
+                <td class=good>
+                  <pre><code data-trim>
+get_element_by_id('product')
+</code></pre>
+                </td>
+              </tr>
+            </table>
+
+          </section>
+
+          <section>
+            <table class=colorstrong>
+              <tr>
+                <td><strong>get</strong>_element_by_id</td>
+                <td>obtain a value <strong>return it</strong></td>
+              </tr>
+
+              <tr>
+                <td><strong>is</strong>_valid</td>
+                <td>compute a boolean</td>
+              </tr>
+
+              <tr>
+                <td><strong>fetch</strong>_products</td>
+                <td>retrieve some data</td>
+              </tr>
+
+              <tr>
+                <td><strong>update</strong>_active_users</td>
+                <td>retrieve/establish some data and <strong>set state</strong></td>
+              </tr>
+            </table>
+          </section>
+
+          <section>
+            <p>Stick to conventions</p>
+
+            <ul>
+              <li><code>self</code>
+              <li><code>i</code> for sequence indices
+              <li>PEP 8
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+
+          <div class=columns style="align-items: baseline">
+            <div style="flex: 1; text-align: left;" class=fragment>
+              <h2>Thank you!</h3>
+              <p>Hire me!</p>
+              <p><a href="https://twitter.com/YannKsr">@YannKsr</a>
+              <p><small>Slides:<br><a href="https://epsy.github.io/naming">https://epsy.github.io/naming</a></small>
+            </div>
+
+            <div style="flex: 1 1; text-align: left; font-size: 0.7em">
+              <h3>Even briefer:</h3>
+              <ul>
+                <li>Take the time to name things
+                <li>Even when practising
+                <li>Make up/Follow simple rules
+                <li>Be consistent
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+        controls: false,
+        showNotes: false,
+        transition: "fade",
+        history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
